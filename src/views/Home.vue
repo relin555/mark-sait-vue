@@ -1,10 +1,10 @@
 <template>
   <div class="home-page">
+    <a name="home"></a>
     <div class="home-page__inner">
       <div class="home-page__main conteiner">
         <div class="home-page__main-text-block">
           <div class="home-page__main-title-wrapper">
-            <a name="home"></a>
             <h1 class="home-page__main-title home-page__text_left">
               Компания
               <span>Бухгалтер в Ресурсе</span>
@@ -17,26 +17,33 @@
               услуги.
             </p>
           </div>
-          <button-read class="home-page__main-button" />
+          <button-read class="home-page__main-button" @click="showText"/>
         </div>
-        <div class="home-page__main-img-wrapper">
+        <div class="home-page__main-img-wrapper"
+        :class="{ 'home-page__main-img-wrapper_show' : textShow }"
+        >
           <ul class="home-page__main-text-items">
             <li class="home-page__main-text-item"
+            :class="{ 'home-page__main-text-item_show' : textShow }"
             v-for="item in textMain"
             :key="item.text"
-            >{{ item.text }}</li>
+            ><p>{{ item.text }}
+              </p>
+            </li>
           </ul>
           <img
+            :class="{ 'home-page__main-bg_show' : textShow }"
             class="home-page__main-bg"
             src="../assets/images/pana.png"
             alt=""
           />
         </div>
+        
       </div>
-
+<a name="about"></a>
       <div class="home-page__welcome">
         <div class="home-page__welcome-inner conteiner">
-          <a name="about"></a>
+          
           <div class="home-page__welcome-img-wrapper">
             <img
               class="home-page__welcome-bg"
@@ -110,7 +117,8 @@ export default {
   data() {
     return {
       listServices: {},
-      listOpen: false
+      listOpen: false,
+      textShow: false,
     }
   },
   methods: {
@@ -121,6 +129,9 @@ export default {
     },
     closedMenu() {
       this.listOpen = false
+    },
+    showText() {
+      this.textShow = !this.textShow
     }
   },
   computed: {
@@ -143,7 +154,6 @@ export default {
   &__main-text-block {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     overflow: hidden;
   }
@@ -158,6 +168,11 @@ export default {
     width: 100%;
     height: auto;
     animation: animBg 3.5s;
+    transition: 0.6s 1.2s;
+  }
+  &__main-bg_show {
+    transform: translateX(101%);
+    transition: 0.6s;
   }
   &__main-title {
     text-align: center;
@@ -183,6 +198,11 @@ export default {
     align-items: center;
     overflow: hidden;
     position: relative;
+    transition: 1.5s;
+  }
+  &__main-img-wrapper_show {
+    padding-bottom: 350px;
+    transition: 1.5s;
   }
   &__main-text-items {
     position: absolute;
@@ -190,8 +210,66 @@ export default {
     left: 0;
   }
   &__main-text-item {
-    font-size: 14px;
+    font-size: 18px;
+    padding-bottom: 15px;
     transform: translateX(-101%);
+    transition: .6s 1.2s;
+    text-align: center;
+  }
+  &__main-text-item:last-child {
+    padding-bottom: 0;
+  }
+  &__main-text-item:nth-child(2) {
+    transition: .6s 1s;
+  }
+  &__main-text-item:nth-child(3) {
+    transition: .6s .8s;
+  }
+  &__main-text-item:nth-child(4) {
+    transition: .6s .6s;
+  }
+  &__main-text-item:nth-child(5) {
+    transition: .6s .4s;
+  }
+  &__main-text-item:nth-child(6) {
+    transition: .6s .2s;
+  }
+  &__main-text-item:nth-child(7) {
+    transition: .6s;
+  }
+  &__main-text-item_show {
+    transform: translateX(0);
+    transition: .6s;
+  }
+  &__main-text-item_show:nth-child(2) {
+    transform: translateX(0);
+    transition: .6s .2s;
+    
+  }
+  &__main-text-item_show:nth-child(3) {
+    transform: translateX(0);
+    transition: .6s .4s;
+    
+  }
+  &__main-text-item_show:nth-child(4) {
+    transform: translateX(0);
+    transition: .6s .6s;
+    
+  }
+  &__main-text-item_show:nth-child(5) {
+    transform: translateX(0);
+    transition: .6s .8s;
+    
+  }
+  &__main-text-item_show:nth-child(6) {
+    transform: translateX(0);
+    transition: .6s 1s;
+    
+  }
+  &__main-text-item_show:nth-child(7) {
+    transform: translateX(0);
+    transition: .6s 1.2s;
+    
   }
   &__welcome {
     background: #f7f7f7;
@@ -306,6 +384,10 @@ export default {
       font-size: 48px;
       line-height: 133.69%;
       max-width: 545px;
+    }
+    &__main-img-wrapper_show {
+    padding-bottom: 100px;
+    transition: 1.5s;
     }
     &__welcome-inner {
       display: flex;
