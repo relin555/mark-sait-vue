@@ -4,6 +4,7 @@
       <div class="home-page__main conteiner">
         <div class="home-page__main-text-block">
           <div class="home-page__main-title-wrapper">
+            <a name="home"></a>
             <h1 class="home-page__main-title home-page__text_left">
               Компания
               <span>Бухгалтер в Ресурсе</span>
@@ -19,6 +20,12 @@
           <button-read class="home-page__main-button" />
         </div>
         <div class="home-page__main-img-wrapper">
+          <ul class="home-page__main-text-items">
+            <li class="home-page__main-text-item"
+            v-for="item in textMain"
+            :key="item.text"
+            >{{ item.text }}</li>
+          </ul>
           <img
             class="home-page__main-bg"
             src="../assets/images/pana.png"
@@ -29,6 +36,7 @@
 
       <div class="home-page__welcome">
         <div class="home-page__welcome-inner conteiner">
+          <a name="about"></a>
           <div class="home-page__welcome-img-wrapper">
             <img
               class="home-page__welcome-bg"
@@ -57,9 +65,9 @@
               налоговой и банков.
             </p>
           </div>
-        </div>
+        </div><a name="product"></a>
       </div>
-
+      
       <div class="home-page__product">
         <div class="home-page__product-inner conteiner">
           <h2 class="home-page__product-title">Мы работаем для вас</h2>
@@ -116,7 +124,7 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(["cardProducts"]),
+    ...mapGetters(["cardProducts", "textMain"]),
   },
   mounted() {
     let vm = this;
@@ -174,6 +182,16 @@ export default {
     justify-content: center;
     align-items: center;
     overflow: hidden;
+    position: relative;
+  }
+  &__main-text-items {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  &__main-text-item {
+    font-size: 14px;
+    transform: translateX(-101%);
   }
   &__welcome {
     background: #f7f7f7;

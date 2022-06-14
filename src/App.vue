@@ -9,14 +9,15 @@
           class="header__link-items"
           :class="{ 'header__active-menu': isActive }"
         >
-          <router-link
+          <a
             class="header__link"
             v-for="item in pageSait"
             :key="item.to"
-            :to="item.to"
+            :href="item.to"
+            @click="closedNavMenu"
           >
             {{ item.name }}
-          </router-link>
+          </a>
         </nav>
         <div
           class="header__feedback"
@@ -54,6 +55,7 @@
 
     <footer class="footer">
       <div class="footer__inner conteiner">
+        <a name="contact"></a>
         <div class="footer__left-column">
           <img class="footer__logo" src="./assets/images/logo.png" alt="" />
           <div class="footer__left-column-info">
@@ -61,15 +63,15 @@
               Москва, Российская Федерация
             </h2>
             <p class="footer__left-column-adress">
-              Ruko Jalur Sutera 29A No. 53 <br />Alam Sutera Serpong, Tangerang
-              15323
+              Дмитровское шоссе дом 60 <br />Московская область, Москва,  
+              127474
             </p>
           </div>
         </div>
         <div class="footer__right-column">
           <h2 class="footer__right-column-title">Контакт</h2>
-          <a href="tel:+79776024613">Phone : +62.21.5314.1135</a>
-          <a href="mailto:nowhere@mozilla.org">community@dwidasa.com</a>
+          <a href="tel:+79776024613">Контактный номер: + 7 925 452-81-80</a>
+          <a href="mailto:info@rudkovskygroup.com">Электронный адрес: info@rudkovskygroup.com</a>
         </div>
       </div>
       <div class="footer__copyright-wrapper">
@@ -93,6 +95,9 @@ export default {
   methods: {
     addMenu() {
       this.isActive = !this.isActive;
+    },
+    closedNavMenu() {
+      this.isActive = false
     }
   },
   computed: {
