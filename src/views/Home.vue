@@ -326,9 +326,6 @@ export default {
     margin: 25px 0;
     padding: 30px 0;
   }
-  &__partners-inner {
-    
-  }
   &__partners-title {
     text-align: center;
     font-weight: 500;
@@ -344,9 +341,6 @@ export default {
   }
   &__partner-item {
     padding-right: 30px;
-  }
-  &__partner-link {
-
   }
   &__partner-logo {
     width: 70px;
