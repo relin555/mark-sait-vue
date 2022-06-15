@@ -340,6 +340,7 @@ export default {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    overflow: scroll;
   }
   &__partner-item {
 
