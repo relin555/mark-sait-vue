@@ -22,6 +22,15 @@ export default createStore({
       { text: 'Настроит все технические системы, поможет заказать электронную подпись и подключить  эквайринг.' },
       { text: 'А ещё он сам найдёт все положенные вашей компании льготы и поможет снизить налоговые платежи на 30-40%. Организует получение поддержки от государства для вашего бизнеса.' },
       { text: 'Гарантирует, что если допустит ошибку — сам её компенсирует. Оплатит все штрафы и пени, образовавшиеся по его вине.' }
+    ],
+    partners: [
+      { name: 'alfa', pathName: 'alfa.svg', link: 'https://alfabank.ru/sme/biznes/' },
+      { name: 'conturDiadoc', pathName: 'conturDiadoc.svg', link: 'https://www.diadoc.ru/' },
+      { name: 'conturnEstern', pathName: 'conturnEstern.svg', link: 'https://www.kontur-extern.ru/' },
+      { name: 'dot', pathName: 'dot.svg', link: 'https://tochka.com/' },
+      { name: 'sbis', pathName: 'sbis.svg', link: 'https://sbis.ru/' },
+      { name: 'tinkoff', pathName: 'tinkoff.svg', link: 'https://www.tinkoff.ru/business/' },
+      { name: 'vtb', pathName: 'vtb.svg', link: 'https://db.vtb.ru/' }
     ]
   },
   getters: {
@@ -33,6 +42,9 @@ export default createStore({
     },
     textMain(state) {
       return state.textMain
+    },
+    partners(state) {
+      return state.partners
     }
   },
   mutations: {

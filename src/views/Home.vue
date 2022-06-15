@@ -90,6 +90,19 @@
         </div>
       </div>
 
+      <div class="home-page__partners">
+        <div class="home-page__partners-inner conteiner">
+          <h4 class="home-page__partners-title">Наши партнеры:</h4>
+          <ul class="home-page__partners-items">
+            <li class="home-page__partner-item" v-for="item in partners" :key="item.name">
+              <a class="home-page__partner-link" :href="item.link">
+                <img class="home-page__partner-logo" :src="require(`../assets/images/iconBank/${item.pathName}`)" alt="item.name">
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
       <div class="home-page__list-services" v-if="listOpen" ref="openMenu">
         <div class="home-page__list-services-inner">
           <div class="home-page__list-services-btn-wrapper">
@@ -135,7 +148,7 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(["cardProducts", "textMain"]),
+    ...mapGetters(["cardProducts", "textMain", "partners"]),
   },
   mounted() {
     let vm = this;
@@ -307,6 +320,36 @@ export default {
     display: flex;
     width: 100%;
     overflow-x: scroll;
+  }
+  &__partners {
+    background: #f7f7f7;
+    margin: 25px 0;
+    padding: 30px 0;
+  }
+  &__partners-inner {
+    
+  }
+  &__partners-title {
+    text-align: center;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 30px;
+    padding-bottom: 30px;
+  }
+  &__partners-items {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__partner-item {
+
+  }
+  &__partner-link {
+
+  }
+  &__partner-logo {
+    width: 70px;
+    height: auto;
   }
    &__list-services {
       position: fixed;
