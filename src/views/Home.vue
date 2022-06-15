@@ -343,7 +343,7 @@ export default {
     overflow: scroll;
   }
   &__partner-item {
-
+    padding-right: 30px;
   }
   &__partner-link {
 
