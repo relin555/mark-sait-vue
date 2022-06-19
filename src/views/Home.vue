@@ -339,8 +339,16 @@ export default {
     align-items: center;
     overflow: scroll;
   }
-  &__partner-item {
-    padding-right: 30px;
+  &__partner-link {
+    margin-right: 30px;
+    padding: 20px;
+    border: 3px solid #ee4248;
+    border-radius: 50%;
+    height: 100px;
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   &__partner-logo {
     width: 70px;
