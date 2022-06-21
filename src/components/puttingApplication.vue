@@ -29,17 +29,10 @@ export default {
       widthleftMenu: null
     }
   },
-  methods: {
-    openMenuWidth() {
-      console.log(this.widthBody)
-    },
-    openWidth() {console.log(1)},
-    closedWidth() { console.log(2)}
-  },
+  
   watch: {
     isOpen(newOpen , oldClosed) {
       if(newOpen) {
-        console.log(oldClosed)
         this.widthleftMenu = ((this.widthBody - this.putFormWidth) / 2) + 'px'
       }
       if(!newOpen) {
