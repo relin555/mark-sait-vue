@@ -5,7 +5,6 @@ export default createStore({
     pageSait: [
       { name: 'Главная', to: '#home' },
       { name: 'Услуги', to: '#product' },
-      { name: 'Цены', to: '#price' },
       { name: 'О нас', to: '#about' },
       { name: 'Контакты', to: '#contact' },
     ],

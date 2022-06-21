@@ -1,5 +1,8 @@
 <template>
   <div class="app">
+
+    <putting-application />
+
     <header class="header" :class="{ header__active: isActive }">
       <div class="header__inner conteiner">
         <div class="header__logo-wrapper">
@@ -85,7 +88,9 @@
 
 <script>
 import { mapGetters } from "vuex";
+import puttingApplication from './components/puttingApplication.vue';
 export default {
+  components: { puttingApplication },
   name: "App",
   data() {
     return {
@@ -130,7 +135,7 @@ body {
   min-width: 320px;
   font-weight: 400;
   font-size: 18px;
-  line-height: 21px;
+  line-height: 20px;
 }
 button {
   outline: none;
