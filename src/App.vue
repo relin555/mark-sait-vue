@@ -6,7 +6,7 @@
     <header class="header" :class="{ header__active: isActive }">
       <div class="header__inner conteiner">
         <div class="header__logo-wrapper">
-          <img class="header__logo" src="./assets/images/logo.png" alt="" />
+          <img class="header__logo" src="./assets/logo.png" alt="" />
         </div>
         <nav
           class="header__link-items"
@@ -60,7 +60,7 @@
       <div class="footer__inner conteiner">
         <a name="contact"></a>
         <div class="footer__left-column">
-          <img class="footer__logo" src="./assets/images/logo.png" alt="" />
+          <img class="footer__logo" src="./assets/logo.png" alt="" />
           <div class="footer__left-column-info">
             <h2 class="footer__left-column-capital-city">
               Москва, Российская Федерация
@@ -165,6 +165,13 @@ button {
     position: relative;
     padding: 0 20px;
   }
+  &__logo-wrapper {
+    display: flex;
+  }
+  &__logo {
+    max-width: 119px;
+    max-height: 56px;
+  }
   &__link-items {
     display: flex;
     flex-direction: column;
@@ -236,6 +243,10 @@ button {
   }
   &__left-column-info {
     padding: 20px 0;
+  }
+   &__logo {
+    max-width: 119px;
+    max-height: 56px;
   }
   &__left-column-capital-city {
     font-weight: 500;
