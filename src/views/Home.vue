@@ -17,33 +17,33 @@
               услуги.
             </p>
           </div>
-          <button-read class="home-page__main-button" @click="showText"/>
+          <button-read class="home-page__main-button" @click="showText" />
         </div>
-        <div class="home-page__main-img-wrapper"
-        :class="{ 'home-page__main-img-wrapper_show' : textShow }"
+        <div
+          class="home-page__main-img-wrapper"
+          :class="{ 'home-page__main-img-wrapper_show': textShow }"
         >
           <ul class="home-page__main-text-items">
-            <li class="home-page__main-text-item"
-            :class="{ 'home-page__main-text-item_show' : textShow }"
-            v-for="item in textMain"
-            :key="item.text"
-            ><p>{{ item.text }}
-              </p>
+            <li
+              class="home-page__main-text-item"
+              :class="{ 'home-page__main-text-item_show': textShow }"
+              v-for="item in textMain"
+              :key="item.text"
+            >
+              <p>{{ item.text }}</p>
             </li>
           </ul>
           <img
-            :class="{ 'home-page__main-bg_show' : textShow }"
+            :class="{ 'home-page__main-bg_show': textShow }"
             class="home-page__main-bg"
             src="../assets/images/pana.png"
             alt=""
           />
         </div>
-        
       </div>
-<a name="about"></a>
+      <a name="about"></a>
       <div class="home-page__welcome">
         <div class="home-page__welcome-inner conteiner">
-          
           <div class="home-page__welcome-img-wrapper">
             <img
               class="home-page__welcome-bg"
@@ -53,8 +53,8 @@
           </div>
           <div class="home-page__welcome-text-block">
             <h2 class="home-page__welcome-title home-page__text_left">
-              Добро пожаловать в
-              <span>Бухгалтер в Ресурсе</span>
+              Добро пожаловать!
+              <span>Это Ваш Бухгалтер в Ресурсе</span>
             </h2>
             <p class="home-page__welcome-subtitle home-page__text_left">
               Более 2-х лет наша компания оказывает бухгалтерские услуги и
@@ -62,19 +62,18 @@
               своей нише без давления обременяющих платежей.
               <br />
               <br />
-              У 5-ти компаний мы
-              восстановили бухгалтерский и налоговый учёт с нуля, устранили
-              глобальные ошибки в операционной деятельности.
+              У 5-ти компаний мы восстановили бухгалтерский и налоговый учёт с
+              нуля, устранили глобальные ошибки в операционной деятельности.
               <br />
               <br />
-              50%-ам клиентов
-              создали комфортные и безопасные условия для работы без притязаний
-              налоговой и банков.
+              50%-ам клиентов создали комфортные и безопасные условия для работы
+              без притязаний налоговой и банков.
             </p>
           </div>
-        </div><a name="product"></a>
+        </div>
+        <a name="product"></a>
       </div>
-      
+
       <div class="home-page__product">
         <div class="home-page__product-inner conteiner">
           <h2 class="home-page__product-title">Мы работаем для вас</h2>
@@ -94,9 +93,17 @@
         <div class="home-page__partners-inner conteiner">
           <h4 class="home-page__partners-title">Наши партнеры:</h4>
           <ul class="home-page__partners-items">
-            <li class="home-page__partner-item" v-for="item in partners" :key="item.name">
+            <li
+              class="home-page__partner-item"
+              v-for="item in partners"
+              :key="item.name"
+            >
               <a class="home-page__partner-link" :href="item.link">
-                <img class="home-page__partner-logo" :src="require(`../assets/images/iconBank/${item.pathName}`)" alt="item.name">
+                <img
+                  class="home-page__partner-logo"
+                  :src="require(`../assets/images/iconBank/${item.pathName}`)"
+                  alt="item.name"
+                />
               </a>
             </li>
           </ul>
@@ -106,14 +113,23 @@
       <div class="home-page__list-services" v-if="listOpen" ref="openMenu">
         <div class="home-page__list-services-inner">
           <div class="home-page__list-services-btn-wrapper">
-            <button class="home-page__list-services-btn" @click="closedMenu">X</button>
+            <button class="home-page__list-services-btn" @click="closedMenu">
+              X
+            </button>
           </div>
           <ul class="home-page__list-services-items">
-            <li class="home-page__list-services-item"
-            v-for="item in listServices.services" :key="item.services">{{ item }}</li>
+            <li
+              class="home-page__list-services-item"
+              v-for="item in listServices.services"
+              :key="item.services"
+            >
+              {{ item }}
+            </li>
           </ul>
           <div class="home-page__list-services-price-wrapper">
-            <h4 class="home-page__list-services-price">{{ listServices.price }}</h4>
+            <h4 class="home-page__list-services-price">
+              {{ listServices.price }}
+            </h4>
           </div>
         </div>
       </div>
@@ -132,32 +148,32 @@ export default {
       listServices: {},
       listOpen: false,
       textShow: false,
-    }
+    };
   },
   methods: {
     openDescription(services) {
-      this.listServices = services
-      this.listOpen = !this.listOpen
-      console.log(1)
+      this.listServices = services;
+      this.listOpen = !this.listOpen;
+      console.log(1);
     },
     closedMenu() {
-      this.listOpen = false
+      this.listOpen = false;
     },
     showText() {
-      this.textShow = !this.textShow
-    }
+      this.textShow = !this.textShow;
+    },
   },
   computed: {
     ...mapGetters(["cardProducts", "textMain", "partners"]),
   },
   mounted() {
     let vm = this;
-    document.addEventListener('click', function(item) {
-      if(item.target === vm.$refs['openMenu']) {
-        vm.listOpen = false
+    document.addEventListener("click", function (item) {
+      if (item.target === vm.$refs["openMenu"]) {
+        vm.listOpen = false;
       }
-    })
-  }
+    });
+  },
 };
 </script>
 
@@ -226,63 +242,57 @@ export default {
     font-size: 18px;
     padding-bottom: 15px;
     transform: translateX(-101%);
-    transition: .6s 1.2s;
+    transition: 0.6s 1.2s;
     text-align: center;
   }
   &__main-text-item:last-child {
     padding-bottom: 0;
   }
   &__main-text-item:nth-child(2) {
-    transition: .6s 1s;
+    transition: 0.6s 1s;
   }
   &__main-text-item:nth-child(3) {
-    transition: .6s .8s;
+    transition: 0.6s 0.8s;
   }
   &__main-text-item:nth-child(4) {
-    transition: .6s .6s;
+    transition: 0.6s 0.6s;
   }
   &__main-text-item:nth-child(5) {
-    transition: .6s .4s;
+    transition: 0.6s 0.4s;
   }
   &__main-text-item:nth-child(6) {
-    transition: .6s .2s;
+    transition: 0.6s 0.2s;
   }
   &__main-text-item:nth-child(7) {
-    transition: .6s;
+    transition: 0.6s;
   }
   &__main-text-item_show {
     transform: translateX(0);
-    transition: .6s;
+    transition: 0.6s;
   }
   &__main-text-item_show:nth-child(2) {
     transform: translateX(0);
-    transition: .6s .2s;
-    
+    transition: 0.6s 0.2s;
   }
   &__main-text-item_show:nth-child(3) {
     transform: translateX(0);
-    transition: .6s .4s;
-    
+    transition: 0.6s 0.4s;
   }
   &__main-text-item_show:nth-child(4) {
     transform: translateX(0);
-    transition: .6s .6s;
-    
+    transition: 0.6s 0.6s;
   }
   &__main-text-item_show:nth-child(5) {
     transform: translateX(0);
-    transition: .6s .8s;
-    
+    transition: 0.6s 0.8s;
   }
   &__main-text-item_show:nth-child(6) {
     transform: translateX(0);
-    transition: .6s 1s;
-    
+    transition: 0.6s 1s;
   }
   &__main-text-item_show:nth-child(7) {
     transform: translateX(0);
-    transition: .6s 1.2s;
-    
+    transition: 0.6s 1.2s;
   }
   &__welcome {
     background: #f7f7f7;
@@ -317,10 +327,17 @@ export default {
     padding: 30px 0;
   }
   &__product-card-wrapper {
-    display: flex;
+      overflow: auto;
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+       display: flex;
     width: 100%;
-    overflow-x: scroll;
-  }
+}
+
+&__product-card-wrapper::-webkit-scrollbar {
+      width: 0;
+      height: 0;
+}
   &__partners {
     background: #f7f7f7;
     margin: 25px 0;
@@ -337,7 +354,21 @@ export default {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    overflow: scroll;
+  }
+  &__partners-items {
+    overflow: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  &__partners-items::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
+  &__partners-items::-webkit-scrollbar {
+    background: #f7f7f7;
+  }
+  &__partners-items::-webkit-scrollbar-thumb {
+    background: #f7f7f7;
   }
   &__partner-link {
     margin-right: 30px;
@@ -354,61 +385,61 @@ export default {
     width: 70px;
     height: auto;
   }
-   &__list-services {
-      position: fixed;
-      background: rgba(238, 66, 72, 0.8);
-      top: 40px;
-      width: 100%;
-      height: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 20px;
-    }
-    &__list-services-inner {
-      background: rgba(246, 246, 246, 1);
-      position: relative;
-      box-shadow: 11px 14px 14px 1px;
-      border-radius: 15px;
-    }
-    &__list-services-items {
-      padding: 25px;
-      transition: .2s;
-    }
-    &__list-services-btn-wrapper {
-      position: absolute;
-      right: 10px;
-      top: 10px;
-    }
-    &__list-services-btn {
-      width: 20px;
-      height: 20px;
-      background: #ee4248;
-      border-radius: 50%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      box-shadow: 5px 5px 12px;
-    }
-    &__list-services-item {
-      padding-bottom: 20px;
-      font-size: 12px;
-      text-transform: uppercase;
-      line-height: 16px;
-      font-weight: 700;
-      list-style-type: square;
-    }
-    &__list-services-item:last-child {
-      padding-bottom: 0px;
-    }
-    &__list-services-price-wrapper {
-      padding: 0 20px 20px 20px;
-    }
-    &__list-services-price {
-      font-size: 16px;
-      text-transform: uppercase;
-      color: #EE4248;
-    }
+  &__list-services {
+    position: fixed;
+    background: rgba(238, 66, 72, 0.8);
+    top: 40px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+  &__list-services-inner {
+    background: rgba(246, 246, 246, 1);
+    position: relative;
+    box-shadow: 11px 14px 14px 1px;
+    border-radius: 15px;
+  }
+  &__list-services-items {
+    padding: 25px;
+    transition: 0.2s;
+  }
+  &__list-services-btn-wrapper {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+  }
+  &__list-services-btn {
+    width: 20px;
+    height: 20px;
+    background: #ee4248;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 5px 5px 12px;
+  }
+  &__list-services-item {
+    padding-bottom: 20px;
+    font-size: 12px;
+    text-transform: uppercase;
+    line-height: 16px;
+    font-weight: 700;
+    list-style-type: square;
+  }
+  &__list-services-item:last-child {
+    padding-bottom: 0px;
+  }
+  &__list-services-price-wrapper {
+    padding: 0 20px 20px 20px;
+  }
+  &__list-services-price {
+    font-size: 16px;
+    text-transform: uppercase;
+    color: #ee4248;
+  }
 }
 @media (min-width: 821px) {
   .home-page {
@@ -432,8 +463,8 @@ export default {
       max-width: 545px;
     }
     &__main-img-wrapper_show {
-    padding-bottom: 100px;
-    transition: 1.5s;
+      padding-bottom: 100px;
+      transition: 1.5s;
     }
     &__welcome-inner {
       display: flex;
@@ -460,7 +491,6 @@ export default {
       width: auto;
       overflow-x: inherit;
     }
-   
   }
 }
 

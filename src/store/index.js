@@ -3,7 +3,7 @@ import { createStore } from 'vuex'
 export default createStore({
   state: {
     pageSait: [
-      { name: 'Главная', to: '#home' },
+      { name: 'Главная', to: '/' },
       { name: 'Услуги', to: '#product' },
       { name: 'О нас', to: '#about' },
       { name: 'Контакты', to: '#contact' },

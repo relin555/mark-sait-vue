@@ -6,7 +6,7 @@
         :class="{ 'application-btn__closed': isOpen }"
         @click="isOpen = !isOpen"
       >
-        <p class="application-btn__title" @click="openMenuWidth">
+        <p class="application-btn__title">
           оставить <br />
           заявку
         </p>
@@ -14,7 +14,7 @@
       <form
         class="put-form"
         :class="{ 'put-form__open-menu': isOpen }"
-        :style="{ left: widthleftMenu }"
+        :style="{ left: leftMenuOpen }"
         @submit.prevent="checkForm"
       >
         <div class="put-form__closet" @click="isOpen = false">x</div>
@@ -108,16 +108,16 @@ export default {
         return true;
       }
     },
+    leftMenuOpen() {
+      if(!this.isOpen) {
+        return 101 + "%"
+      }else{
+        return (this.widthBody - this.putFormWidth) / 2 + "px";
+      }
+    }
   },
   watch: {
-    isOpen(newOpen, oldClosed) {
-      if (newOpen) {
-        this.widthleftMenu = (this.widthBody - this.putFormWidth) / 2 + "px";
-      }
-      if (!newOpen) {
-        this.widthleftMenu = 101 + "%";
-      }
-    },
+   
   },
   mounted() {
     let getBody = document.querySelector("body");

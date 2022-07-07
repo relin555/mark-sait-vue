@@ -5,9 +5,9 @@
 
     <header class="header" :class="{ header__active: isActive }">
       <div class="header__inner conteiner">
-        <div class="header__logo-wrapper">
+        <a href="/" class="header__logo-wrapper">
           <img class="header__logo" src="./assets/logo.png" alt="" />
-        </div>
+        </a>
         <nav
           class="header__link-items"
           :class="{ 'header__active-menu': isActive }"
@@ -41,8 +41,8 @@
               </a>
             </li>
             <li class="header__feedback-item">
-              <a href="tel:+79776024613" class="header__feedback-item-phone">
-                <img src="./assets/images/shuffle.svg" alt="" />
+              <a href="tel:+79951131594" class="header__feedback-item-phone">
+                <img src="./assets/images/phone.svg" alt="" />
               </a>
             </li>
           </ul>
@@ -73,7 +73,7 @@
         </div>
         <div class="footer__right-column">
           <h2 class="footer__right-column-title">Контакт</h2>
-          <a href="tel:+79776024613">Контактный номер: + 7 925 452-81-80</a>
+          <a href="tel:+79951131594">Контактный номер: + 7(995) 113 15 94</a>
           <a href="mailto:info@rudkovskygroup.com">Электронный адрес: info@rudkovskygroup.com</a>
         </div>
       </div>
@@ -107,9 +107,6 @@ export default {
   },
   computed: {
     ...mapGetters(["pageSait"]),
-  },
-  mounted() {
-    
   },
 };
 </script>
@@ -197,6 +194,7 @@ button {
   }
   &__feedback-items {
     display: flex;
+    align-items: center;
   }
   &__feedback-item {
     padding-right: 40px;
